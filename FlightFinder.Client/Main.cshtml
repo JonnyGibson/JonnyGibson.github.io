@@ -1,11 +1,15 @@
 ﻿@inject AppState state
 
-
- <input list="filters" placeholder="..." @bind(selectedFilter) />
+<div class="row">
+    <div class="col col-md-12">
+<input list="filters" placeholder="..." @bind(selectedFilter) />
                     <br />
-                  <span>@selectedFilter?.DisplayName</span>
+               Current:   <span>@selectedFilter?.DisplayName</span>
                
 <FiltersList />
+    </div>
+</div>
+ 
 
 <div id="search-and-results-area">
     <div id="search-area" class="">
