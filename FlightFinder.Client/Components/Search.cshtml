@@ -1,19 +1,22 @@
 ﻿<div class="col">
+
+    
+
     <!-- Airport selection -->
     <div class="row py-1">
         <!-- From airport -->
-        <div class="col pr-0">
+        <div class="col pr-0 ">
             <div class="form-control d-flex">
-                <div><i>✈</i>&nbsp;&nbsp;From:</div>
+                <div><i>ℹ️</i>&nbsp;&nbsp;Company:</div>
                 <input list="airports" placeholder="..." @bind(criteria.FromAirport) />
             </div>
         </div>
-        <div class="col px-2 py-1 align-self-end arrow">➝</div>
+        <div class="col px-2 py-1 align-self-end arrow"></div>
 
         <!-- To airport -->
         <div class="col pl-0">
             <div class="form-control d-flex">
-                <div><i>✈</i>&nbsp;&nbsp;To:</div>
+                <div><i>📑</i>&nbsp;&nbsp;Sector:</div>
                 <input list="airports" placeholder="..." @bind(criteria.ToAirport) />
             </div>
         </div>
@@ -24,16 +27,16 @@
         <!-- Depart date -->
         <div class="col pr-0">
             <div class="form-control d-flex">
-                <div><i>🗓</i>&nbsp;&nbsp;Depart:</div>
+                <div><i>🌟</i>&nbsp;&nbsp;Rating:</div>
                 <input type="date" @bind(criteria.OutboundDate, "yyyy-MM-dd") />
             </div>
         </div>
-        <div class="col px-2 py-1 align-self-end arrow">➝</div>
+        <div class="col px-2 py-1 align-self-end arrow"></div>
 
         <!-- Arrive date -->
         <div class="col pl-0">
             <div class="form-control d-flex">
-                <div><i>🗓</i>&nbsp;&nbsp;Arrive:</div>
+                <div><i>🔰</i>&nbsp;&nbsp;Fund Type:</div>
                 <input type="date" @bind(criteria.ReturnDate, "yyyy-MM-dd") />
             </div>
         </div>
