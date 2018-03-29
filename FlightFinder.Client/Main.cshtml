@@ -1,9 +1,9 @@
 ﻿@inject AppState state
 
 
- <input list="filters" placeholder="..." @bind(filterTobeAdded) />
+ <input list="filters" placeholder="..." @bind(selectedFilter) />
                     <br />
-                  <span>@filterTobeAdded?.DisplayName</span>
+                  <span>@selectedFilter?.DisplayName</span>
                
 <FiltersList />
 
