@@ -1,7 +1,11 @@
 ﻿@inject AppState state
 
 
-
+ <input list="filters" placeholder="..." @bind(filterTobeAdded) />
+                    <br />
+                  <span>@filterTobeAdded?.DisplayName</span>
+               
+<FiltersList />
 
 <div id="search-and-results-area">
     <div id="search-area" class="">
@@ -25,4 +29,6 @@
     {
         state.OnChange += StateHasChanged;
     }
+
+     private Filter selectedFilter = new Filter("CMP", "Company");
 }
