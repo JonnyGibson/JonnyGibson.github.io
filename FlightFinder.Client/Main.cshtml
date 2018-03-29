@@ -1,15 +1,7 @@
 ﻿@inject AppState state
 
-<div class="row">
-    <div class="col col-md-12">
-<input list="filters" placeholder="..." @bind(selectedFilter) />
-                    <br />
-               Current:   <span>@selectedFilter?.DisplayName</span>
-               
 
-    </div>
-</div>
- 
+
 
 <div id="search-and-results-area">
     <div id="search-area" class="">
@@ -23,9 +15,9 @@
     </div>
 </div>
 @*<div id="selections-area" class="p-3 pl-4">
-    <Shortlist Itineraries=state.Shortlist
-               OnRemoveItinerary=state.RemoveFromShortlist />
-</div>*@
+        <Shortlist Itineraries=state.Shortlist
+                   OnRemoveItinerary=state.RemoveFromShortlist />
+    </div>*@
 <FiltersList />
 @functions
 {
@@ -34,5 +26,4 @@
         state.OnChange += StateHasChanged;
     }
 
-     private Filter selectedFilter = new Filter("CMP", "Company");
 }

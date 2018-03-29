@@ -1,16 +1,37 @@
-﻿    
+﻿@inject AppState state
+
+
 
 <div class="col">
-    <div class="row">
-        <div class="col-xs-8 col-xs-offset-2">
-            <div class="input-group">
-                <div class="input-group-btn search-panel">
 
+    <div class="row">   
+        <div class="col col-md-6 ">
+            <div class="form-inline">          
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="px-2">📑</i>Filter Options:</div>
+                    </div>
+                    <select  @bind(state.FilterTypeSelected)>
+                        <option value=@FilterType.Company>Company</option>
+                        <option value=@FilterType.Sector>Sector</option>
+                        <option value=@FilterType.Rating>Rating</option>
+                        <option value=@FilterType.Type>Fund Type</option>
+                    </select>
+                    <!--need to change second drop down based on type selected-->
+                    <select @bind(state.FilterTypeSelected)>
+                        <option value=@FilterType.Company>Company</option>
+                        <option value=@FilterType.Sector>Sector</option>
+                        <option value=@FilterType.Rating>Rating</option>
+                        <option value=@FilterType.Type>Fund Type</option>
+                    </select>
                 </div>
-                
             </div>
         </div>
     </div>
+
+
+
+
 
 
     <!-- Airport selection -->
@@ -18,8 +39,8 @@
         <!-- From airport -->
         <div class="col pr-0 ">
             <div class="form-control d-flex">
-                <div><i>ℹ️</i>&nbsp;&nbsp;Company:</div>
-                <input list="airports" placeholder="..." @bind(criteria.FromAirport) />
+                <div><i class="glyphicon-filter"></i>&nbsp;&nbsp;Company:</div>
+                <c list="airports" placeholder="..." @bind(criteria.FromAirport) />
             </div>
         </div>
         <div class="col px-2 py-1 align-self-end arrow"></div>
@@ -75,9 +96,9 @@
 
 @functions
 {
-    public Func<SearchCriteria, Task> OnSearch { get; set; }
+public Func<SearchCriteria, Task> OnSearch { get; set; }
 
-    private SearchCriteria criteria = new SearchCriteria("LHR", "SEA");
+private SearchCriteria criteria = new SearchCriteria("LHR", "SEA");
 
-  //  private Filter selectedFilter = new Filter("CMP", "Company");
+//  private Filter selectedFilter = new Filter("CMP", "Company");
 }

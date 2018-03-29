@@ -4,13 +4,7 @@ namespace FlightFinder.Server
 {
     public class SampleData
     {
-        public readonly static Filter[] Filters = new[]
-        {
-            new Filter("CMP","Company" ),
-             new Filter (   "RTG",   "Rating" ),
-              new Filter (   "STR",   "Sector" ),
-               new Filter (   "FTY",   "Fund Type" )
-        };
+       
 
         public readonly static Airport[] Airports = new[]
         {

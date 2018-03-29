@@ -12,6 +12,7 @@ namespace FlightFinder.Client.Services
         // Actual state
         public IReadOnlyList<Itinerary> SearchResults { get; private set; }
         public bool SearchInProgress { get; private set; }
+        public FilterType FilterTypeSelected { get;  set; }
 
         private readonly List<Itinerary> shortlist = new List<Itinerary>();
         public IReadOnlyList<Itinerary> Shortlist => shortlist;

@@ -88,7 +88,7 @@ body {
         }
     }
 
-    input {
+    input, select {
         border: 0;
         flex: auto;
         width: 0;
@@ -130,6 +130,7 @@ body {
     -moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
 
+    padding-top: 10px;
     select {
         background-color: rgba(0, 0, 0, 0.15);
         border: none;
