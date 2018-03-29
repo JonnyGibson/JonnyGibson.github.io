@@ -4,15 +4,11 @@
             <div class="input-group">
                 <div class="input-group-btn search-panel">
 
-                    <input list="filters" placeholder="..." @bind(filterTobeAdded) />
+                    <input list="filters" placeholder="..." @bind(selectedFilter.Code) />
                     <br />
-                  <span>@filterTobeAdded?.DisplayName</span>
+               @*   <span>@selectedFilter?.DisplayName ?? not set</span>*@
                 </div>
-                <input type="hidden" name="search_param" value="all" id="search_param">
-                <input type="text" class="form-control" name="x" placeholder="Search term...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-plus"></span></button>
-                </span>
+                
             </div>
         </div>
     </div>
@@ -76,6 +72,7 @@
     </div>
 </div>
 <AirportsList />
+<FiltersList />
 
 @functions
 {
@@ -83,5 +80,5 @@
 
     private SearchCriteria criteria = new SearchCriteria("LHR", "SEA");
 
-    private Filter filterTobeAdded = new Filter() { Code = "", DisplayName = "Not Set" };
+    private Filter selectedFilter = new Filter("CMP", "Company");
 }

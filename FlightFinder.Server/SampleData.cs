@@ -6,10 +6,10 @@ namespace FlightFinder.Server
     {
         public readonly static Filter[] Filters = new[]
         {
-            new Filter { Code = "CMP", DisplayName = "Company" },
-             new Filter { Code = "RTG", DisplayName = "Rating" },
-              new Filter { Code = "STR", DisplayName = "Sector" },
-               new Filter { Code = "FTY", DisplayName = "Fund Type" }
+            new Filter("CMP","Company" ),
+             new Filter (   "RTG",   "Rating" ),
+              new Filter (   "STR",   "Sector" ),
+               new Filter (   "FTY",   "Fund Type" )
         };
 
         public readonly static Airport[] Airports = new[]
