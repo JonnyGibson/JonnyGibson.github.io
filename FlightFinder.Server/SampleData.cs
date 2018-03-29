@@ -4,6 +4,14 @@ namespace FlightFinder.Server
 {
     public class SampleData
     {
+        public readonly static Filter[] Filters = new[]
+        {
+            new Filter { Code = "CMP", DisplayName = "Company" },
+             new Filter { Code = "RTG", DisplayName = "Rating" },
+              new Filter { Code = "STR", DisplayName = "Sector" },
+               new Filter { Code = "FTY", DisplayName = "Fund Type" }
+        };
+
         public readonly static Airport[] Airports = new[]
         {
             new Airport { Code = "ATL", DisplayName = "Hartsfield–Jackson Atlanta International" },

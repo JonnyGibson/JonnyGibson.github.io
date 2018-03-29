@@ -1,0 +1,18 @@
+﻿@inject HttpClient Http
+
+<datalist id="filters">
+    @foreach (var filter in filters)
+    {
+        <option value=@filter.Code>@filter.DisplayName (@filter.Code)</option>
+    }
+</datalist>
+
+@functions
+{
+    private Filter[] filters = Array.Empty<Filter>();
+
+    protected override async Task OnInitAsync()
+    {
+        filters = await Http.GetJsonAsync<Filter[]>("/api/filters");
+    }
+}
