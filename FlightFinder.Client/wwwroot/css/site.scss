@@ -88,7 +88,7 @@ body {
         }
     }
 
-    input, select {
+    input, select  {
         border: 0;
         flex: auto;
         width: 0;
@@ -136,6 +136,8 @@ body {
         border: none;
         color: white;
         font-weight: 600;
+        width:200px;
+
     }
 
     .form-control {

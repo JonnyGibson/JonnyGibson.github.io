@@ -4,31 +4,36 @@
 
 <div class="col">
 
-    <div class="row">   
-        <div class="col col-md-6 ">
-            <div class="form-inline">          
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="px-2">📑</i>Filter Options:</div>
-                    </div>
-                    <select  @bind(state.FilterTypeSelected)>
-                        <option value=@FilterType.Company>Company</option>
-                        <option value=@FilterType.Sector>Sector</option>
-                        <option value=@FilterType.Rating>Rating</option>
-                        <option value=@FilterType.Type>Fund Type</option>
-                    </select>               
-                    <FilterList filterType=@state.FilterTypeSelected />                  
+
+    <div class="row filter-selects">
+        <div class="col col-md-5 ">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="px-2">🔍</i>Filter Options:</div>
+                </div>
+                <select  class="form-control" @bind(state.FilterTypeSelected)>
+                    <option value=@FilterType.Company>Company</option>
+                    <option value=@FilterType.Sector>Sector</option>
+                    <option value=@FilterType.Rating>Rating</option>
+                    <option value=@FilterType.Type>Fund Type</option>
+                </select>
                 </div>
             </div>
+        <div class="col col-md-5 ">
+            <FilterList filterType=@state.FilterTypeSelected />
+        </div>
+        <div class="col col-md-2 ">
         </div>
     </div>
 
+  
 
 
 
 
 
-    <!-- Airport selection -->
+
+    @*<!-- Airport selection -->
     <div class="row py-1">
         <!-- From airport -->
         <div class="col pr-0 ">
@@ -46,7 +51,7 @@
                 <input list="airports" placeholder="..." @bind(criteria.ToAirport) />
             </div>
         </div>
-    </div>
+    </div>*@
 
     <!-- Departure / arrival dates -->
     <div class="row py-1">
@@ -70,14 +75,7 @@
 
     <!-- Class / search -->
     <div class="row py-1 d-flex px-3">
-        <div>
-            <select class="custom-select" @bind(criteria.TicketClass)>
-                <option value=@TicketClass.Economy>Economy</option>
-                <option value=@TicketClass.PremiumEconomy>Premium Economy</option>
-                <option value=@TicketClass.Business>Business</option>
-                <option value=@TicketClass.First>First</option>
-            </select>
-        </div>
+        
         <div class="ml-auto">
             <button @onclick(() => OnSearch(criteria)) type="button" class="btn btn-danger px-5">
                 Search ➝
