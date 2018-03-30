@@ -6,76 +6,44 @@
 
 
     <div class="row filter-selects">
-        <div class="col col-md-5 ">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="px-2">🔍</i>Filter Options:</div>
-                </div>
-                <select  class="form-control" @bind(state.FilterTypeSelected)>
+        <div class="input-group">
+
+            <div class="col col-md-2 small-pad small-pad-top filter-builder-label">
+                <i class="px-2">🔍</i>Filter Builder:
+            </div>
+            <div class="col col-md-3  small-pad">
+                <select class="form-control" @bind(state.FilterTypeSelected)>
                     <option value=@FilterType.Company>Company</option>
                     <option value=@FilterType.Sector>Sector</option>
                     <option value=@FilterType.Rating>Rating</option>
                     <option value=@FilterType.Type>Fund Type</option>
                 </select>
-                </div>
             </div>
-        <div class="col col-md-5 ">
-            <FilterList filterType=@state.FilterTypeSelected />
+            <div class="col col-md-4  small-pad">
+                <FilterList filterType=@state.FilterTypeSelected />
+            </div>
+            <div class="col col-md-2 ">
+                <button @onclick(() => OnSearch(criteria)) type="button" class="btn btn-success px-5">
+                    <span class="glyphicon glyphicon-plus"> Add</span>
+                </button>
+            </div>
         </div>
-        <div class="col col-md-2 ">
+
+    </div>
+
+    <div class="row">
+        <div class="col col-md-10 offset-md-1 pt-3">
+            <div class="alert alert-success">
+                <strong>Success!</strong> Indicates a successful or positive action.
+            </div>
         </div>
     </div>
 
-  
 
-
-
-
-
-
-    @*<!-- Airport selection -->
-    <div class="row py-1">
-        <!-- From airport -->
-        <div class="col pr-0 ">
-            <div class="form-control d-flex">
-                <div><i class="glyphicon-filter"></i>&nbsp;&nbsp;Company:</div>
-                <c list="airports" placeholder="..." @bind(criteria.FromAirport) />
-            </div>
-        </div>
-        <div class="col px-2 py-1 align-self-end arrow"></div>
-
-        <!-- To airport -->
-        <div class="col pl-0">
-            <div class="form-control d-flex">
-                <div><i>📑</i>&nbsp;&nbsp;Sector:</div>
-                <input list="airports" placeholder="..." @bind(criteria.ToAirport) />
-            </div>
-        </div>
-    </div>*@
-
-    <!-- Departure / arrival dates -->
-    <div class="row py-1">
-        <!-- Depart date -->
-        <div class="col pr-0">
-            <div class="form-control d-flex">
-                <div><i>🌟</i>&nbsp;&nbsp;Rating:</div>
-                <input type="date" @bind(criteria.OutboundDate, "yyyy-MM-dd") />
-            </div>
-        </div>
-        <div class="col px-2 py-1 align-self-end arrow"></div>
-
-        <!-- Arrive date -->
-        <div class="col pl-0">
-            <div class="form-control d-flex">
-                <div><i>🔰</i>&nbsp;&nbsp;Fund Type:</div>
-                <input type="date" @bind(criteria.ReturnDate, "yyyy-MM-dd") />
-            </div>
-        </div>
-    </div>
 
     <!-- Class / search -->
     <div class="row py-1 d-flex px-3">
-        
+
         <div class="ml-auto">
             <button @onclick(() => OnSearch(criteria)) type="button" class="btn btn-danger px-5">
                 Search ➝
