@@ -18,12 +18,9 @@
                         <option value=@FilterType.Type>Fund Type</option>
                     </select>
                     <!--need to change second drop down based on type selected-->
-                    <select @bind(state.FilterTypeSelected)>
-                        <option value=@FilterType.Company>Company</option>
-                        <option value=@FilterType.Sector>Sector</option>
-                        <option value=@FilterType.Rating>Rating</option>
-                        <option value=@FilterType.Type>Fund Type</option>
-                    </select>
+                  
+                        <FilterList filterType=@state.FilterTypeSelected.ToDisplayString() />
+                   
                 </div>
             </div>
         </div>

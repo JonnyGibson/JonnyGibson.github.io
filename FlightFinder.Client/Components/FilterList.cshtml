@@ -1,0 +1,24 @@
+﻿@inject HttpClient Http
+
+<select>
+@foreach (var item in filterList)
+    {
+<option value=@item.Key>@item.Value</option>
+    }
+</select>
+
+@functions
+{
+    private Dictionary<int, string> filterList;
+    public string filterType {get; set;}
+
+    protected override async Task OnInitAsync()
+    {
+        filterList = new Dictionary<int, string>(){
+            {0,$"{filterType} Item 1"},
+            {1,$"{filterType} Item 2"},
+            {2,$"{filterType} Item 3"},
+            {3,$"{filterType} Item 4"}
+        };
+    }
+}
