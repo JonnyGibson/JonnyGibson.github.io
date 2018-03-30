@@ -1,11 +1,4 @@
-﻿/*
-    The SCSS structure here is not well organised. There's a lot of unnecessary repetition,
-    and no use of variables to factor out common or easily-changeable values.
-    
-    If you're a SCSS expert, please consider submitting a PR to show how well-organised SCSS
-    should look. Ideally it should be as predictable and industry-standard as possible.
-*/
-
+﻿
 @-webkit-keyframes Gradient {
     0% {
         background-position: 0% 50%
@@ -54,20 +47,16 @@ html {
 
 body {
     height: 100%;
-    display: flex;
+    /*display: flex;*/
 }
 
-#search-and-results-area {
+/*#search-and-results-area {
     display: flex;
     flex: auto;
     flex-direction: column;
-}
+}*/
 
-.arrow {
-    flex-grow: 0;
-    font-size: 20px;
-    color: white;
-}
+
 
 .form-control {
     white-space: nowrap;
@@ -77,9 +66,7 @@ body {
     }
 
     div {
-        color: #c4c4c4;
-        flex: initial;
-        width: 75px;
+        
 
         i {
             font-style: normal;
@@ -103,9 +90,7 @@ body {
     }
 }
 
-.row {
-    flex-wrap: nowrap !important;
-}
+
 
 .greyout {
     position: absolute;
@@ -122,14 +107,18 @@ body {
 }
 
 #search-area {
-    flex: initial;
-    //  background: linear-gradient(135deg, #cb60b3 0%, #c146a1 30%, #a80077 85%, #db36a4 100%);
+   
     background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
     background-size: 400% 400%;
     -webkit-animation: Gradient 15s ease infinite;
     -moz-animation: Gradient 15s ease infinite;
     animation: Gradient 15s ease infinite;
     padding-top: 10px;
+
+    .row{
+        margin:0;
+        padding:10px;
+    }
 
     select {
         background-color: rgba(0, 0, 0, 0.15);
@@ -150,6 +139,8 @@ body {
 
     .filter-builder-label {
         font-weight: 600;
+        padding-top:7px;
+        font-size: 1.1em;
     }
 
     .form-control {

@@ -1,57 +1,54 @@
 ﻿@inject AppState state
 
+<div class="row filter-selects">
 
 
-<div class="col">
-
-
-    <div class="row filter-selects">
-        <div class="input-group">
-
-            <div class="col col-md-2 small-pad small-pad-top filter-builder-label">
-                <i class="px-2">🔍</i>Filter Builder:
-            </div>
-            <div class="col col-md-3  small-pad">
-                <select class="form-control" @bind(state.FilterTypeSelected)>
-                    <option value=@FilterType.Company>Company</option>
-                    <option value=@FilterType.Sector>Sector</option>
-                    <option value=@FilterType.Rating>Rating</option>
-                    <option value=@FilterType.Type>Fund Type</option>
-                </select>
-            </div>
-            <div class="col col-md-4  small-pad">
-                <FilterList filterType=@state.FilterTypeSelected />
-            </div>
-            <div class="col col-md-2 ">
-                <button @onclick(() => OnSearch(criteria)) type="button" class="btn btn-success px-5">
-                    <span class="glyphicon glyphicon-plus"> Add</span>
-                </button>
-            </div>
-        </div>
-
+    <div class="col col-md-2 filter-builder-label">
+        <i class="px-2 glyphicon glyphicon glyphicon-list-alt"></i> Filter Builder:
     </div>
-
-    <div class="row">
-        <div class="col col-md-10 offset-md-1 pt-3">
-            <div class="alert alert-success">
-                <strong>Success!</strong> Indicates a successful or positive action.
-            </div>
-        </div>
+    <div class="col col-md-3 small-pad">
+        <select class="form-control" @bind(state.FilterTypeSelected)>
+            <option value=@FilterType.Company>Company</option>
+            <option value=@FilterType.Sector>Sector</option>
+            <option value=@FilterType.Rating>Rating</option>
+            <option value=@FilterType.Type>Fund Type</option>
+        </select>
     </div>
-
-
-
-    <!-- Class / search -->
-    <div class="row py-1 d-flex px-3">
-
-        <div class="ml-auto">
-            <button @onclick(() => OnSearch(criteria)) type="button" class="btn btn-danger px-5">
-                Search ➝
-            </button>
-        </div>
+    <div class="col col-md-5  small-pad">
+        <FilterList filterType=@state.FilterTypeSelected />
+    </div>
+    <div class="col col-md-2 ">
+        <button @onclick(() => OnSearch(criteria)) type="button" class="btn btn-success px-5">
+            <span class="glyphicon glyphicon-plus"> </span> Add
+        </button>
     </div>
 </div>
-<AirportsList />
+    
+
+
+<div class="row">
+    <div class="col col-md-10 offset-md-1 pt-3">
+        <div class="alert alert-success">
+            <strong>Success!</strong> Indicates a successful or positive action.
+        </div>
+    </div>
+    <div class="col col-md-1">
+        remove
+    </div>
+</div>
+
+
+
+<!-- Class / search -->
+<div class="row ">
+
+    <div class="col col-md-2 offset-md-10">
+        <button @onclick(() => OnSearch(criteria)) type="button" class="btn btn-danger px-5">
+            <span class="glyphicon glyphicon-search"> </span> Search
+        </button>
+    </div>
+</div>
+
 
 
 @functions

@@ -11,21 +11,26 @@
 {
     private Dictionary<int, string> filterList;
 
-    public FilterType filterType {get; set;}
-     
+    public FilterType filterType { get; set; }
+
 
     private void PopulateList(){
-     filterList = new Dictionary<int, string>(){
+        filterList = new Dictionary<int, string>(){
                 {0,$"{filterType.ToDisplayString()} Item 1"},
                 {1,$"{filterType.ToDisplayString()} Item 2"},
                 {2,$"{filterType.ToDisplayString()} Item 3"},
                 {3,$"{filterType.ToDisplayString()} Item 4"}
             };
-}
+    }
+
+    protected override void OnParametersSet()
+    {
+        PopulateList();
+    }
 
 
     protected override async Task OnInitAsync()
     {
-PopulateList();
+        //  PopulateList();
     }
 }
