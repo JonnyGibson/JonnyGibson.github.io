@@ -1,10 +1,48 @@
 ﻿using FlightFinder.Shared;
+using System.Collections.Generic;
+using System;
 
 namespace FlightFinder.Server
 {
     public class SampleData
     {
-       
+
+        public readonly static Dictionary<int, string> Companies = 
+            new Dictionary<int, string>(){
+            {1001,"Invesco International" },
+             {1002,"Prudential Money Peope" },
+              {1003,"Hargreaves Lansdown AM" },
+               {1004,"Vanguard Forefront Group" },
+                {1005,"Big Daddy Bank" },
+                 {1006,"Natwest Investment Providers" }
+        };
+        public readonly static Dictionary<int, string> Sectors =
+            new Dictionary<int, string>(){
+            {2001,"Europe" },
+             {2002,"UK" },
+              {2003,"Asia Middle East" },
+               {2004,"Emerging Markets" },
+                {2005,"Property" }
+        };
+
+        public readonly static Dictionary<int, string> Ratings =
+           new Dictionary<int, string>(){
+            {3001,"1 Star" },
+             {3002,"2 Star" },
+              {3003,"3 Star" },
+               {3004,"4 Star" },
+                {3005,"5 Star" }
+       };
+
+
+        public readonly static Dictionary<int, string> FundTypes =
+           new Dictionary<int, string>(){
+            {4001,"Fixed Income" },
+             {4002,"Balanced Funds" },
+              {4003,"Speciality" },
+               {4004,"Fund of funds" },
+                {4005,"Equity Funds" }
+       };
 
         public readonly static Airport[] Airports = new[]
         {
@@ -59,7 +97,7 @@ namespace FlightFinder.Server
             new Airport { Code = "MSP", DisplayName = "Minneapolis/St Paul International" },
             new Airport { Code = "DOH", DisplayName = "Hamad International" },
         };
-        
+
         public readonly static string[] Airlines = new[]
         {
             "American Airlines",

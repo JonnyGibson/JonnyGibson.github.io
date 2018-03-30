@@ -18,7 +18,7 @@
         <FilterList filterType=@state.FilterTypeSelected />
     </div>
     <div class="col col-md-2 ">
-        <button @onclick(() => OnSearch(criteria)) type="button" class="btn btn-success px-5">
+        <button  type="button" class="btn btn-success px-5">
             <span class="glyphicon glyphicon-plus"> </span> Add
         </button>
     </div>
@@ -28,7 +28,8 @@
 
 <div class="row">
     <div class="col col-md-10 offset-md-1 pt-3">
-        <div class="alert alert-success">
+        <div class="alert alert-warning fade in alert-dismissible">
+            <a href="#" @onclick(() => OnSearch(criteria)) class="close" data-dismiss="alert" aria-label="Remove Filter" title="Remove Filter">×</a>
             <strong>Success!</strong> Indicates a successful or positive action.
         </div>
     </div>
@@ -43,7 +44,7 @@
 <div class="row ">
 
     <div class="col col-md-2 offset-md-10">
-        <button @onclick(() => OnSearch(criteria)) type="button" class="btn btn-danger px-5">
+        <button @onclick(() => OnSearch(criteria)) type="button" class="btn btn-success px-5">
             <span class="glyphicon glyphicon-search"> </span> Search
         </button>
     </div>
@@ -53,9 +54,11 @@
 
 @functions
 {
-public Func<SearchCriteria, Task> OnSearch { get; set; }
+    public Func<SearchCriteria, Task> OnSearch { get; set; }
 
-private SearchCriteria criteria = new SearchCriteria("LHR", "SEA");
+    public Func<int, Task> OnAdd { get; set; }
 
-//  private Filter selectedFilter = new Filter("CMP", "Company");
+    private SearchCriteria criteria = new SearchCriteria("LHR", "SEA");
+
+    //  private Filter selectedFilter = new Filter("CMP", "Company");
 }

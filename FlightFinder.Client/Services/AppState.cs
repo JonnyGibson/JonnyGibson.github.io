@@ -13,6 +13,7 @@ namespace FlightFinder.Client.Services
         public IReadOnlyList<Itinerary> SearchResults { get; private set; }
         public bool SearchInProgress { get; private set; }
         public FilterType FilterTypeSelected { get;  set; }
+        public int FilterIdSelected { get; set; }
 
         private readonly List<Itinerary> shortlist = new List<Itinerary>();
         public IReadOnlyList<Itinerary> Shortlist => shortlist;
@@ -34,6 +35,16 @@ namespace FlightFinder.Client.Services
             NotifyStateChanged();
 
             SearchResults = await http.PostJsonAsync<Itinerary[]>("/api/flightsearch", criteria);
+            SearchInProgress = false;
+            NotifyStateChanged();
+        }
+
+        public async Task Add(int id)
+        {
+            SearchInProgress = true;
+            NotifyStateChanged();
+
+            SearchResults = await http.PostJsonAsync<Itinerary[]>("/api/flightsearch", id);
             SearchInProgress = false;
             NotifyStateChanged();
         }

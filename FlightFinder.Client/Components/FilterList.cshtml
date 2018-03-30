@@ -1,36 +1,40 @@
 ﻿@inject HttpClient Http
+@inject AppState state
 
-<select  class="form-control">
+<select class="form-control"  @bind(state.FilterIdSelected)>
     @foreach (var item in filterList)
     {
-    <option value=@item.Key>@item.Value</option>
+        <option value=@item.Key>@item.Value</option>
     }
 </select>
-
+<span>@filterList.Count</span>
 @functions
 {
     private Dictionary<int, string> filterList;
 
     public FilterType filterType { get; set; }
 
+    // private string test;
 
-    private void PopulateList(){
-        filterList = new Dictionary<int, string>(){
-                {0,$"{filterType.ToDisplayString()} Item 1"},
-                {1,$"{filterType.ToDisplayString()} Item 2"},
-                {2,$"{filterType.ToDisplayString()} Item 3"},
-                {3,$"{filterType.ToDisplayString()} Item 4"}
-            };
-    }
-
-    protected override void OnParametersSet()
+    private void   PopulateList()
     {
-        PopulateList();
+        //    filterList = new Dictionary<int, string>(){
+        //    {0,$"{filterType.ToDisplayString()} Item 1"},
+        //    {1,$"{filterType.ToDisplayString()} Item 2"},
+        //    {2,$"{filterType.ToDisplayString()} Item 3"},
+        //    {3,$"{filterType.ToDisplayString()} Item 4"}
+        //};
     }
 
+    protected override async void OnParametersSet()
+    {
+
+    }
 
     protected override async Task OnInitAsync()
     {
-        //  PopulateList();
+        filterList = await Http
+         .GetJsonAsync<Dictionary<int, string>>($"/api/filters?filtertype={filterType.ToDisplayString()}");
+
     }
 }
