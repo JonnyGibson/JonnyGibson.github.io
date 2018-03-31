@@ -2,12 +2,16 @@
 {
     public class FilterLookupItem
     {
-        public int Code { get; set; }
+        public string Code { get; set; }
         public string DisplayName { get; set; }
 
+        public FilterLookupItem()
+        {
+
+        }
         public FilterLookupItem(int code, string displayName)
         {
-            Code = code;
+            Code = code.ToString();
             DisplayName = displayName;
         }
     }

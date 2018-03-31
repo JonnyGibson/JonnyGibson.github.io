@@ -29,6 +29,11 @@ namespace FlightFinder.Client.Services
             http = httpInstance;
         }
 
+        public async Task<FilterLookupItem[]> GetFilters(FilterType filterType)
+        {
+            return await http.GetJsonAsync<FilterLookupItem[]>($"/api/filters/filters?filtertype={filterType.ToDisplayString()}");           
+        }
+
         public async Task Search(SearchCriteria criteria)
         {
             SearchInProgress = true;

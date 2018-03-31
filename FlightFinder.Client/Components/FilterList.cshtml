@@ -4,37 +4,25 @@
 <select class="form-control"  @bind(state.FilterIdSelected)>
     @foreach (var item in filterList)
     {
-        <option value=@item.Key>@item.Value</option>
+        <option value=@item.Code>@item.DisplayName</option>
     }
 </select>
-<span>@filterList.Count</span>
+
 @functions
 {
-    private Dictionary<int, string> filterList = new Dictionary<int, string>();
 
+    FilterLookupItem[] filterList = Array.Empty<FilterLookupItem>();
     public FilterType filterType { get; set; }
 
-    // private string test;
-
-    private void   PopulateList()
+    protected override async Task OnParametersSetAsync()
     {
-        //    filterList = new Dictionary<int, string>(){
-        //    {0,$"{filterType.ToDisplayString()} Item 1"},
-        //    {1,$"{filterType.ToDisplayString()} Item 2"},
-        //    {2,$"{filterType.ToDisplayString()} Item 3"},
-        //    {3,$"{filterType.ToDisplayString()} Item 4"}
-        //};
-    }
-
-    protected override async void OnParametersSet()
-    {
+        filterList = await Http.GetJsonAsync<FilterLookupItem[]>($"/api/filters/filters?filtertype={filterType.ToDisplayString()}");
+        StateHasChanged();
 
     }
 
     protected override async Task OnInitAsync()
     {
-      //  filterList = await Http
-        // .GetJsonAsync<Dictionary<int, string>>($"/api/filters?filtertype={filterType.ToDisplayString()}");
 
     }
 }
