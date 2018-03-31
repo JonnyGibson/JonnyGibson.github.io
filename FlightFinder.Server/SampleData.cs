@@ -7,7 +7,11 @@ namespace FlightFinder.Server
     public class SampleData
     {
 
-        public readonly static Dictionary<int, string> Companies = 
+
+
+
+
+        public readonly static Dictionary<int, string> Companies =
             new Dictionary<int, string>(){
             {1001,"Invesco International" },
              {1002,"Prudential Money Peope" },
@@ -111,5 +115,40 @@ namespace FlightFinder.Server
             "Qantas",
             "Virgin Atlantic",
         };
+
+        public readonly static Fund[] Funds = new Fund[]
+        {
+            new Fund {Id = Guid.NewGuid(), Company = "Invesco Perpetual", Name = "Super Fund 99", Description = "A Desc", FundTYpe = "ETF", Manager = "John Smith", Rating = "5 Star", Sector = "EU" },
+            new Fund {Id = Guid.NewGuid(), Company = "Invesco Perpetual", Name = "Super Fund 88", Description = "A Desc", FundTYpe = "Fund of Funds", Manager = "John Smith", Rating = "4 Star", Sector = "EU" },
+            new Fund {Id = Guid.NewGuid(), Company = "Invesco Perpetual", Name = "Super Fund 43", Description = "A Desc", FundTYpe = "ETF", Manager = "John Smith", Rating = "3 Star", Sector = "UK" },
+            new Fund {Id = Guid.NewGuid(), Company = "Invesco Perpetual", Name = "Naff Thing", Description = "A Desc", FundTYpe = "Unit Trust", Manager = "John Smith", Rating = "5 Star", Sector = "EU" },
+            new Fund {Id = Guid.NewGuid(), Company = "Invesco Perpetual", Name = "Spread Bet", Description = "A Desc", FundTYpe = "ETF", Manager = "John Smith", Rating = "5 Star", Sector = "Emerging Markets" },
+
+                        new Fund {Id = Guid.NewGuid(), Company = "Natwest Investments", Name = "Super Fund 99", Description = "A Desc", FundTYpe = "Fund of Funds", Manager = "John Smith", Rating = "5 Star", Sector = "EU" },
+            new Fund {Id = Guid.NewGuid(), Company = "Natwest Investments", Name = "Super Fund 88", Description = "A Desc", FundTYpe = "Equities", Manager = "John Smith", Rating = "4 Star", Sector = "UK" },
+            new Fund {Id = Guid.NewGuid(), Company = "Natwest Investments", Name = "Super Fund 43", Description = "A Desc", FundTYpe = "ETF", Manager = "John Smith", Rating = "3 Star", Sector = "Asia & Middle East" },
+            new Fund {Id = Guid.NewGuid(), Company = "Natwest Investments", Name = "Naff Thing", Description = "A Desc", FundTYpe = "Unit Trust", Manager = "John Smith", Rating = "5 Star", Sector = "EU" },
+            new Fund {Id = Guid.NewGuid(), Company = "Natwest Investments", Name = "Spread Bet", Description = "A Desc", FundTYpe = "Bonds", Manager = "John Smith", Rating = "5 Star", Sector = "Emerging Markets" },
+
+                                    new Fund {Id = Guid.NewGuid(), Company = "Natwest Investments", Name = "Super Fund 99", Description = "A Desc", FundTYpe = "ETF", Manager = "John Smith", Rating = "5 Star", Sector = "EU" },
+            new Fund {Id = Guid.NewGuid(), Company = "Vanguard Investments", Name = "Super Fund 88", Description = "A Desc", FundTYpe = "Equities", Manager = "John Smith", Rating = "4 Star", Sector = "ASia & Middle East" },
+            new Fund {Id = Guid.NewGuid(), Company = "Vanguard Investments", Name = "Super Fund 43", Description = "A Desc", FundTYpe = "Fund of Funds", Manager = "John Smith", Rating = "3 Star", Sector = "Asia & Middle East" },
+            new Fund {Id = Guid.NewGuid(), Company = "Vanguard Investments", Name = "Naff Thing", Description = "A Desc", FundTYpe = "Unit Trust", Manager = "John Smith", Rating = "5 Star", Sector = "EU" },
+            new Fund {Id = Guid.NewGuid(), Company = "Vanguard Investments", Name = "Spread Bet", Description = "A Desc", FundTYpe = "Bonds", Manager = "John Smith", Rating = "5 Star", Sector = "Emerging Markets" },
+
+                                                new Fund {Id = Guid.NewGuid(), Company = "Natwest Investments", Name = "Super Fund 99", Description = "A Desc", FundTYpe = "ETF", Manager = "John Smith", Rating = "5 Star", Sector = "EU" },
+            new Fund {Id = Guid.NewGuid(), Company = "Hargreaves Lansdown AM", Name = "Super Fund 88", Description = "A Desc", FundTYpe = "Equities", Manager = "John Smith", Rating = "4 Star", Sector = "ASia & Middle East" },
+            new Fund {Id = Guid.NewGuid(), Company = "Hargreaves Lansdown AM", Name = "Super Fund 43", Description = "A Desc", FundTYpe = "Fund of Funds", Manager = "John Smith", Rating = "3 Star", Sector = "Asia & Middle East" },
+            new Fund {Id = Guid.NewGuid(), Company = "Hargreaves Lansdown AM", Name = "Naff Thing", Description = "A Desc", FundTYpe = "Unit Trust", Manager = "John Smith", Rating = "5 Star", Sector = "EU" },
+            new Fund {Id = Guid.NewGuid(), Company = "Hargreaves Lansdown AM", Name = "Spread Bet", Description = "A Desc", FundTYpe = "Bonds", Manager = "John Smith", Rating = "5 Star", Sector = "Emerging Markets" },
+
+                                 new Fund {Id = Guid.NewGuid(), Company = "Prudential Fancy Bank", Name = "Super Fund 99", Description = "A Desc", FundTYpe = "ETF", Manager = "John Smith", Rating = "5 Star", Sector = "EU" },
+            new Fund {Id = Guid.NewGuid(), Company = "Prudential Fancy Bank", Name = "Super Fund 88", Description = "A Desc", FundTYpe = "Equities", Manager = "John Smith", Rating = "4 Star", Sector = "ASia & Middle East" },
+            new Fund {Id = Guid.NewGuid(), Company = "Prudential Fancy Bank", Name = "Super Fund 43", Description = "A Desc", FundTYpe = "Fund of Funds", Manager = "John Smith", Rating = "3 Star", Sector = "Asia & Middle East" },
+            new Fund {Id = Guid.NewGuid(), Company = "Prudential Fancy Bank", Name = "Naff Thing", Description = "A Desc", FundTYpe = "Unit Trust", Manager = "John Smith", Rating = "5 Star", Sector = "UK" },
+            new Fund {Id = Guid.NewGuid(), Company = "Prudential Fancy Bank", Name = "Spread Bet", Description = "A Desc", FundTYpe = "Bonds", Manager = "John Smith", Rating = "5 Star", Sector = "Emerging Markets" }
+
+        };
     }
 }
+
