@@ -19,7 +19,7 @@ namespace FlightFinder.Shared
                 case FilterType.Company: return "Company";
                 case FilterType.Sector: return "Sector";
                 case FilterType.Rating: return "Rating";
-                case FilterType.Type: return "Fund Type";
+                case FilterType.Type: return "Type";
                 default: throw new ArgumentException("Unknown ticket class: " + filterType.ToString());
             }
         }

@@ -9,9 +9,9 @@
         {
 
         }
-        public FilterLookupItem(int code, string displayName)
+        public FilterLookupItem(string code, string displayName)
         {
-            Code = code.ToString();
+            Code = code;
             DisplayName = displayName;
         }
     }

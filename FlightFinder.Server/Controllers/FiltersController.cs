@@ -15,16 +15,16 @@ namespace FlightFinder.Server.Controllers
             switch (filterType)
             {
                 case FilterType.Company:
-                    return SampleData.Companies.Select(x => new FilterLookupItem(x.Key, x.Value));
+                    return SampleData.Funds.Select(f => f.Company).Distinct().Select(x => new FilterLookupItem(x, x));
                     break;
                 case FilterType.Sector:
-                    return SampleData.Sectors.Select(x => new FilterLookupItem(x.Key, x.Value));
+                    return SampleData.Funds.Select(f => f.Sector).Distinct().Select(x => new FilterLookupItem(x, x));
                     break;
                 case FilterType.Rating:
-                    return SampleData.Ratings.Select(x => new FilterLookupItem(x.Key, x.Value));
+                    return SampleData.Funds.Select(f => f.Rating).Distinct().Select(x => new FilterLookupItem(x, x));
                     break;
                 case FilterType.Type:
-                    return SampleData.FundTypes.Select(x => new FilterLookupItem(x.Key, x.Value));
+                    return SampleData.Funds.Select(f => f.FundType).Distinct().Select(x => new FilterLookupItem(x, x));
                     break;
                 default:
                     return null;

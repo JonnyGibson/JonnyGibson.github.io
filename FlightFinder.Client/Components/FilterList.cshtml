@@ -1,13 +1,12 @@
 ﻿@inject HttpClient Http
 @inject AppState state
 
-<select class="form-control"  @bind(state.FilterIdSelected)>
+<select class="form-control"  @bind(state.FilterItemSelected)>
     @foreach (var item in filterList)
     {
         <option value=@item.Code>@item.DisplayName</option>
     }
 </select>
-
 @functions
 {
 

@@ -13,7 +13,7 @@ namespace FlightFinder.Client.Services
         public IReadOnlyList<Itinerary> SearchResults { get; private set; }
         public bool SearchInProgress { get; private set; }
         public FilterType FilterTypeSelected { get;  set; }
-        public int FilterIdSelected { get; set; }
+        public string FilterItemSelected { get; set; }
 
         private readonly List<Itinerary> shortlist = new List<Itinerary>();
         public IReadOnlyList<Itinerary> Shortlist => shortlist;
@@ -39,14 +39,9 @@ namespace FlightFinder.Client.Services
             NotifyStateChanged();
         }
 
-        public async Task Add(int id)
+        public async Task Add(string filterItem)
         {
-            SearchInProgress = true;
-            NotifyStateChanged();
-
-            SearchResults = await http.PostJsonAsync<Itinerary[]>("/api/flightsearch", id);
-            SearchInProgress = false;
-            NotifyStateChanged();
+             AddFilter(FilterTypeSelected, filterItem);
         }
 
         public void AddToShortlist(Itinerary itinerary)
@@ -62,5 +57,24 @@ namespace FlightFinder.Client.Services
         }
 
         private void NotifyStateChanged() => OnChange?.Invoke();
+
+        public Dictionary<FilterType, List<string>> SelectedFilters = new Dictionary<FilterType, List<string>>();
+
+        public void AddFilter(FilterType filterType, string filter)
+        {
+            if (SelectedFilters.ContainsKey(filterType))
+            {
+                var currentTypeFilters = SelectedFilters[filterType];
+                if (!currentTypeFilters.Contains(filter)){
+                    currentTypeFilters.Add(filter);
+                    SelectedFilters[filterType] = currentTypeFilters;
+                }
+            }
+            else
+            {
+                SelectedFilters.Add(filterType, new List<string> { filter });
+            }
+            
+        }
     }
 }
