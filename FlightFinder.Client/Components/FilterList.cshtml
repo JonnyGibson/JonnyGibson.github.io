@@ -10,7 +10,7 @@
 <span>@filterList.Count</span>
 @functions
 {
-    private Dictionary<int, string> filterList;
+    private Dictionary<int, string> filterList = new Dictionary<int, string>();
 
     public FilterType filterType { get; set; }
 
@@ -33,8 +33,8 @@
 
     protected override async Task OnInitAsync()
     {
-        filterList = await Http
-         .GetJsonAsync<Dictionary<int, string>>($"/api/filters?filtertype={filterType.ToDisplayString()}");
+      //  filterList = await Http
+        // .GetJsonAsync<Dictionary<int, string>>($"/api/filters?filtertype={filterType.ToDisplayString()}");
 
     }
 }

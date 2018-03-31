@@ -1,32 +1,34 @@
 ﻿using FlightFinder.Shared;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FlightFinder.Server.Controllers
 {
     [Route("api/[controller]")]
     public class FiltersController : Controller
     {
-        public  Dictionary<int, string> Get(FilterType filterType)
+        public  IEnumerable<FilterLookupItem> Filters(FilterType filterType)
         {
-            switch (filterType)
-            {
-                case FilterType.Company:
-                    return SampleData.Companies;
-                    break;
-                case FilterType.Sector:
-                    return SampleData.Sectors;
-                    break;
-                case FilterType.Rating:
-                    return SampleData.Ratings;
-                    break;
-                case FilterType.Type:
-                    return SampleData.FundTypes;
-                    break;
-                default:
-                    return new Dictionary<int, string>();
-                    break;
-            };
+            return new List<FilterLookupItem>() { new FilterLookupItem(1, "test one") };
+            //switch (filterType)
+            //{
+            //    case FilterType.Company:
+            //        return  SampleData.Companies.Select(x => new FilterLookupItem(x.Key, x.Value));
+            //        break;
+            //    case FilterType.Sector:
+            //        return SampleData.Sectors.Select(x => new FilterLookupItem(x.Key, x.Value));
+            //        break;
+            //    case FilterType.Rating:
+            //        return SampleData.Ratings.Select(x => new FilterLookupItem(x.Key, x.Value));
+            //        break;
+            //    case FilterType.Type:
+            //        return SampleData.FundTypes.Select(x => new FilterLookupItem(x.Key, x.Value));
+            //        break;
+            //    default:
+            //        return null;
+            //        break;
+            //};
         }
     }
 }

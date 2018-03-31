@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Components\nexttest.cshtml" />
     <None Include="wwwroot\css\bootstrap-theme.css.map" />
     <None Include="wwwroot\css\bootstrap.css.map" />
     <None Include="wwwroot\favicon.ico" />
@@ -34,6 +35,14 @@
 
   <ItemGroup>
     <BlazorGenerate Remove="Components\FilterList.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Components\nexttest.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Components\nexttest.cshtml" />
   </ItemGroup>
 
 </Project>
