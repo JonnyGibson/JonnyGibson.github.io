@@ -16,8 +16,7 @@
     protected override async Task OnParametersSetAsync()
     {
         filterList = await Http.GetJsonAsync<FilterLookupItem[]>($"/api/filters/filters?filtertype={filterType.ToDisplayString()}");
-        StateHasChanged();
-
+        state.FilterItemSelected = filterList[0].Code;
     }
 
     protected override async Task OnInitAsync()

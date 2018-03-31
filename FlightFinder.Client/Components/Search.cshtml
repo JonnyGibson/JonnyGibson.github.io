@@ -18,29 +18,25 @@
         <FilterList filterType=@state.FilterTypeSelected />
     </div>
     <div class="col col-md-2 ">
-        <button @onclick(() =>  OnAdd(state.FilterItemSelected)) type="button" class="btn btn-success px-5">
+        <button @onclick(() => OnAdd(state.FilterItemSelected)) type="button" class="btn btn-success px-5">
             <span class="glyphicon glyphicon-plus"> </span> Add
         </button>
     </div>
 </div>
-    
+
 
 <div class="row">
-    <div class="col col-md-10 offset-md-1 pt-3">
+    <div class="col col-md-10 offset-md-1 pt-2">
 
         @foreach (KeyValuePair<FilterType, List<string>> entry in state.SelectedFilters)
         {
-
             <div class="alert alert-warning fade in alert-dismissible">
                 <a href="#" @onclick(() => OnAdd(state.FilterItemSelected)) class="close" data-dismiss="alert" aria-label="Remove Filter" title="Remove Filter">×</a>
                 <strong>@entry.Key.ToDisplayString()</strong> @string.Join(",", @entry.Value)
             </div>
         }
+    </div>
 
-    </div>
-    <div class="col col-md-1">
-        remove
-    </div>
 </div>
 
 
@@ -53,14 +49,22 @@
         </button>
     </div>
 </div>
-
+@*<div id="log">
+    <h3>Log (@state.LogItems.Count)</h3>
+    <ul>
+        @foreach (var item in state.LogItems)
+        {
+            <li>@item</li>
+        }
+    </ul>
+</div>*@
 @functions
 {
-    public Func<SearchCriteria, Task> OnSearch { get; set; }
+public Func<SearchCriteria, Task> OnSearch { get; set; }
 
-    public Func<string, Task> OnAdd { get; set; }
+public Func<string, Task> OnAdd { get; set; }
 
-    private SearchCriteria criteria = new SearchCriteria("LHR", "SEA");
+private SearchCriteria criteria = new SearchCriteria("LHR", "SEA");
 
-    //  private Filter selectedFilter = new Filter("CMP", "Company");
+//  private Filter selectedFilter = new Filter("CMP", "Company");
 }

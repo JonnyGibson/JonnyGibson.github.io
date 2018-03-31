@@ -18,6 +18,8 @@ namespace FlightFinder.Client.Services
         private readonly List<Itinerary> shortlist = new List<Itinerary>();
         public IReadOnlyList<Itinerary> Shortlist => shortlist;
 
+        public List<string> LogItems = new List<string>();
+        public void Log(string item) => LogItems.Add(item);
         // Lets components receive change notifications
         // Could have whatever granularity you want (more events, hierarchy...)
         public event Action OnChange;
@@ -62,6 +64,8 @@ namespace FlightFinder.Client.Services
 
         public void AddFilter(FilterType filterType, string filter)
         {
+            Log($"adding value:{filter} to {filterType.ToDisplayString()}");
+          
             if (SelectedFilters.ContainsKey(filterType))
             {
                 var currentTypeFilters = SelectedFilters[filterType];
