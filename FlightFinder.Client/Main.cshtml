@@ -6,12 +6,13 @@
             <div id="search-and-results-area">
                 <div id="search-area" class="">
                     
-                    <Search OnSearch=state.Search OnAdd=state.Add OnRemove=state.RemoveFilterItem/>
+                    <Search OnSearch=state.GetFundList OnAdd=state.Add OnRemove=state.RemoveFilterItem/>
                 </div>
                 <div id="results-area">
                     <GreyOutZone IsGreyedOut=state.SearchInProgress>
-                        <SearchResults Itineraries=state.SearchResults
-                                       OnAddItinerary=state.AddToShortlist />
+                        @*<SearchResults Itineraries=state.SearchResults
+        OnAddItinerary=state.AddToShortlist />*@
+<FundsList Funds=@state.FundList/>
                     </GreyOutZone>
                 </div>
             </div>

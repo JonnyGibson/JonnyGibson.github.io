@@ -1,0 +1,33 @@
+﻿<h2>Funds List (@Funds.Count)</h2>
+
+<ul class="list-group mb-4">
+    @foreach (var fund in Funds)
+{
+
+    <li class="list-group-item justify-content-between">
+        <div class="row">
+            <div class="col col-md-8">
+                <h3>@fund.Company - @fund.Name</h3>
+                <nobr>Sector</nobr> : <nobr>@fund.Sector</nobr>
+                <br />
+                <nobr>Fund Type</nobr> : <nobr>@fund.FundType</nobr>
+                <br />
+                <nobr>Rating</nobr> : <nobr>@fund.Rating</nobr>
+                <br />
+                <nobr>Manager</nobr> : <nobr>@fund.Manager</nobr>
+            </div>
+            <div class="col col-md-4">
+                 <img src="business-chart-going-up.jpg" width="100" height="100"/>
+                
+                </div>
+            </div>
+</li>
+
+
+}
+</ul>
+@functions
+{
+
+    public List<Fund> Funds { get; set; }
+}

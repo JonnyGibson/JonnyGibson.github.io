@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace FlightFinder.Client.Services
 {
@@ -14,6 +15,10 @@ namespace FlightFinder.Client.Services
         public bool SearchInProgress { get; private set; }
         public FilterType FilterTypeSelected { get;  set; }
         public string FilterItemSelected { get; set; }
+         
+        public List<Fund> FundList = new List<Fund>();
+
+        public List<Fund> Basket = new List<Fund>();
 
         private readonly List<Itinerary> shortlist = new List<Itinerary>();
         public IReadOnlyList<Itinerary> Shortlist => shortlist;
@@ -49,6 +54,30 @@ namespace FlightFinder.Client.Services
         {
             SelectedFilters.Remove(filterType);
 
+        }
+
+        public async Task GetFundList()
+        {
+            SearchInProgress = true;
+            NotifyStateChanged();
+            Log("GetFundList");
+
+            var filterString = "";
+            var values = Enum.GetValues(typeof(FilterType));
+            foreach (var item in values)
+            {
+                if (SelectedFilters.ContainsKey((FilterType)item))
+                {
+                    foreach (var value in SelectedFilters[(FilterType)item])
+                    {
+                        filterString += $"{((FilterType)item).ToDisplayString()}={value} &";
+                    }
+                }
+            }
+            var list =  await http.GetJsonAsync<Fund[]>($"/api/funds/funds?{filterString}");
+            FundList = list.ToList();
+            SearchInProgress = false;
+            NotifyStateChanged();
         }
 
         public void AddToShortlist(Itinerary itinerary)
