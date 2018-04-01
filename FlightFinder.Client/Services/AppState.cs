@@ -45,6 +45,11 @@ namespace FlightFinder.Client.Services
         {
              AddFilter(FilterTypeSelected, filterItem);
         }
+        public async Task RemoveFilterItem(FilterType filterType)
+        {
+            SelectedFilters.Remove(filterType);
+
+        }
 
         public void AddToShortlist(Itinerary itinerary)
         {

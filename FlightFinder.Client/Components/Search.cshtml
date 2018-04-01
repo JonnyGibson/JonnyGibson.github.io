@@ -31,7 +31,7 @@
         @foreach (KeyValuePair<FilterType, List<string>> entry in state.SelectedFilters)
         {
             <div class="alert alert-warning fade in alert-dismissible">
-                <a href="#" @onclick(() => OnAdd(state.FilterItemSelected)) class="close" data-dismiss="alert" aria-label="Remove Filter" title="Remove Filter">×</a>
+                <a href="#" @onclick(() => OnRemove(entry.Key)) class="close" data-dismiss="alert" aria-label="Remove Filter" title="Remove Filter">×</a>
                 <strong>@entry.Key.ToDisplayString()</strong> @string.Join(",", @entry.Value)
             </div>
         }
@@ -60,11 +60,13 @@
 </div>*@
 @functions
 {
-public Func<SearchCriteria, Task> OnSearch { get; set; }
+    public Func<SearchCriteria, Task> OnSearch { get; set; }
 
-public Func<string, Task> OnAdd { get; set; }
+    public Func<string, Task> OnAdd { get; set; }
 
-private SearchCriteria criteria = new SearchCriteria("LHR", "SEA");
+    public Func<FilterType, Task> OnRemove { get; set; }
 
-//  private Filter selectedFilter = new Filter("CMP", "Company");
+    private SearchCriteria criteria = new SearchCriteria("LHR", "SEA");
+
+    //  private Filter selectedFilter = new Filter("CMP", "Company");
 }

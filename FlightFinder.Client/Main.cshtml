@@ -6,7 +6,7 @@
             <div id="search-and-results-area">
                 <div id="search-area" class="">
                     
-                    <Search OnSearch=state.Search OnAdd=state.Add/>
+                    <Search OnSearch=state.Search OnAdd=state.Add OnRemove=state.RemoveFilterItem/>
                 </div>
                 <div id="results-area">
                     <GreyOutZone IsGreyedOut=state.SearchInProgress>
