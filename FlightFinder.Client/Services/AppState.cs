@@ -70,7 +70,7 @@ namespace FlightFinder.Client.Services
                 {
                     foreach (var value in SelectedFilters[(FilterType)item])
                     {
-                        filterString += $"{((FilterType)item).ToDisplayString()}={value} &";
+                        filterString += $"{((FilterType)item).ToDisplayString()}={value}&";
                     }
                 }
             }
