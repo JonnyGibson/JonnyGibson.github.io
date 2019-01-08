@@ -55,7 +55,7 @@
         }
     </style>
     <script>
-        var table, tableOld, tableHeader, tableHeaderOld, tableFooter, tableFooterOld, pageHeader, pageHeaderOld, footerImageAddress, footerImageAddressOld;
+        var tableData, tableDataOld, tableHeader, tableHeaderOld, tableFooter, tableFooterOld, pageHeader, pageHeaderOld, footerImageAddress, footerImageAddressOld;
 
         window.setInterval(function () {
 
@@ -96,7 +96,7 @@
 
             }
 
-            if (table != tableOld) {
+            if (tableData != tableDataOld) {
                 //fill the table
 
                 if (!Array.isArray(table)) {
@@ -104,7 +104,7 @@
                 } else {
                     $("#lessonTable tbody").empty();
                     var markup = "";
-                    table.forEach(function (element) {
+                    tableData.forEach(function (element) {
                         markup = "<tr>";
                         for (var propertyName in element) {
                             markup += "<td>" + element[propertyName];
@@ -115,7 +115,7 @@
                         $("#lessonTable tbody").append(markup);
                     });
 
-                    tableOld = table;
+                    tableDataOld = tableData;
                 }
             }
 
@@ -137,7 +137,6 @@
             console.log("%c********************************************************", 'color: green')
             switch (num) {
                 case 1:
-
                     console.log("There is a preset variable called 'pageHeader', its type is 'string'")
                     console.log("Set this variable to change the web page header text")
                     break;
@@ -145,10 +144,11 @@
                     console.log("Create a table of data on the web site.")
                     console.log("There is a preset variable called 'tableHeader', its type is an array (list) or strings")
                     console.log("Set this variable to an array of strings to populate the table header")
+                    console.log("Set the values as 'first name', 'last name' & 'age'")
                     break;
                 case 3:
                     console.log("Create data for the table")
-                    console.log("There is a preset variable called 'table', its type is array of objects like [{name:\"test\",age:5, etc, etc}]")
+                    console.log("There is a preset variable called 'tableData', its type is array of objects like [{firstname:\"test\",age:5, etc, etc}]")
                     console.log("Set this variable to an array of objects with properties matching the header")
                     break;
                 case 4:
@@ -161,6 +161,16 @@
                     console.log("There is a preset variable called 'footerImageAddress',  its type is 'string'")
                     console.log("Set this variable to contain a web address to an image you have googled")
                     console.log("eg: https://kubrick.htvapps.com/htv-prod-media.s3.amazonaws.com/images/survival-1481829022.jpg")
+                    break;
+                case 6:
+                    console.log("Create a new variable called 'person'")
+                    console.log("assign an object to it, with firstname, lastname and fullname. leave fullname as a blank string")
+                    break;
+                case 7:
+                    console.log("There is a preset variable called 'tableHeader', add values to it again, but add an extra value of 'full name'")
+                    break;
+                case 8:
+                    console.log("Create a function called getFullName, which concatenates two strings and returns the value")
                     break;
                 default:
                     console.error("Sorry, no challenge exists with that number")
